@@ -13,15 +13,27 @@ function writePassword() {
 function generatePassword() {
   // ask user how many characters they want for the password
   // be sure to let them know min 8 chars, 128 max
-prompt("How many characters would you like your password to be?"
-      + "\nMinimum of 8 characters; Maximum of 128 characters.");
-
-  if (password.length < 8) {
-    
-  } else if (password.length > 128) {
-
+var passLength = parseInt(prompt("How many characters would you like your password to be?"
+                + "\nMinimum of 8 characters; Maximum of 128 characters."));
+  if (passLength < 8) {
+    console.log("test case 1");
+    alert("WARNING: Not enough characters! What are you thinking?");
+    generatePassword();
+  } else if (passLength > 128) {
+    console.log("test case 2");
+    alert("WARNING: Too many characters! What are you thinking?");
+    generatePassword();
+  } else if (passLength == undefined || passLength == NaN) {
+    console.log("test case 3");
+    alert("WARNING: Seriously? Use a number dude, come on.");
+    generatePassword();
   } else {
-
+    console.log("test case main");
+    // ask if user wants lowercase/uppercase/nums/special chars
+    var lowerChars = confirm("Would you like to use lowercase characters for the password?");
+    var upperChars = confirm("Would you like to use uppercase characters for the password?");
+    var numChars = confirm("Would you like to use number characters for the password?");
+    var specChars = confirm("Would you like to use special characters for the password?");
   }
 }
 
