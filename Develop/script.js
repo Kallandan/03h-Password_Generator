@@ -31,10 +31,38 @@ var passLength = parseInt(prompt("How many characters would you like your passwo
     console.log("test case main");
     // ask if user wants lowercase/uppercase/nums/special chars
     var lowerChars = confirm("Would you like to use lowercase characters for the password?");
-    var upperChars = confirm("Would you like to use uppercase characters for the password?");
-    var numChars = confirm("Would you like to use number characters for the password?");
-    var specChars = confirm("Would you like to use special characters for the password?");
+    if (!lowerChars) {
+      //var upperChars = '';
+      var lowerChoice = lowerChars;
+      console.log(lowerChoice);
+      wantUppers();
+    } else {
+      var lowerChoice = lowerChars;
+      console.log(lowerChoice);
+      wantUppers();
+    }
+    
   }
+}
+
+function wantUppers() {
+  var upperChars = confirm("Would you like to use uppercase characters for the password?");
+  var upperChoice = upperChars;
+  console.log(upperChoice);
+  wantNums();
+}
+
+function wantNums() {
+  var numChars = confirm("Would you like to use number characters for the password?");
+  var numChoice = numChars;
+  console.log(numChoice);
+  wantChars();
+}
+
+function wantChars() {
+  var specChars = confirm("Would you like to use special characters for the password?");
+  var specChoice = specChars;
+  console.log(specChoice);
 }
 
 // Add event listener to generate button
