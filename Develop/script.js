@@ -21,18 +21,20 @@ function generatePassword() {
   // be sure to let them know min 8 chars, 128 max
   var password = '';
   var passLength = 0;
+  var lowerChoice;
+  var upperChoice;
+  var numChoice;
+  var specChoice;
 
   // confirming length of generated password
   passLength = parseInt(prompt("How many characters would you like your password to be?"
                 + "\nMinimum of 8 characters; Maximum of 128 characters."));
 
-  if (isNaN(passLength)) {
+
+  if (passLength < 8 || passLength > 128 || isNaN(passLength)) {
     alert("WARNING: Please choose a numerical value between 8 and 128.");
     passLength = 0;
-    generatePassword();
-  } else if (passLength < 8 || passLength > 128) {
-    alert("WARNING: Please choose a numerical value between 8 and 128.");
-    passLength = 0;
+    password = '';
     generatePassword();
   } else if (passLength > 7 && passLength < 129) {
 
@@ -55,11 +57,12 @@ function generatePassword() {
 
     //console.log("test case main");
     alert(`Your password is going to have ${passLength} character(s).`);
+    
     // ask if user wants lowercase/uppercase/nums/special chars
-    var lowerChoice = wantLowers();
-    var upperChoice = wantUppers();
-    var numChoice = wantNums();
-    var specChoice = wantChars();
+    lowerChoice = wantLowers();
+    upperChoice = wantUppers();
+    numChoice = wantNums();
+    specChoice = wantChars();
 
     var necessaryChars = [];
     
@@ -88,9 +91,7 @@ function generatePassword() {
     for(var i = 0; i < passLength; i++) {
       password += necessaryChars[Math.floor(Math.random() * necessaryChars.length)];
     }
-  } else {
-    generatePassword();
-  } // my issue is that it keeps resetting.
+  }
     //console.log(password);
 
     return password;
