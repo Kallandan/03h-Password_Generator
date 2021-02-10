@@ -1,6 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var characters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -13,6 +17,7 @@ function writePassword() {
 function generatePassword() {
   // ask user how many characters they want for the password
   // be sure to let them know min 8 chars, 128 max
+  let 
 var passLength = parseInt(prompt("How many characters would you like your password to be?"
                 + "\nMinimum of 8 characters; Maximum of 128 characters."));
   if (passLength < 8) {
@@ -41,6 +46,9 @@ var passLength = parseInt(prompt("How many characters would you like your passwo
       console.log(lowerChoice);
       wantUppers();
     }
+    if (lowerChoice) {
+      // going to 
+    }
     
   }
 }
@@ -67,3 +75,5 @@ function wantChars() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
